@@ -1,0 +1,52 @@
+{% extends 'app\baselogin.html' %}
+{% load static %}
+{% block content %}
+
+<nav class="navbar navbar-expand-sm bg-success navbar-dark p-1 mt-3 d-flex ">
+  <span class="pl-4 navbar-text text-light">
+    Inicio > Subscribirse
+  </span>
+</nav>
+<div class="container-fluid p-5">
+  <div class="row justify-content-center">
+    <div class="col-10 col-sm-8 col-lg-4 d-flex flex-column mb-4 ">
+      <form action="/action_page.php">
+        <div class="">
+          <h4>Gracias por tu apoyo!! <i class="fa-solid fa-heart text-success"></i></h4>
+          <p>Todos los recursos son destinados a la fundación para que ayudar a los animales!!
+          </p>
+        </div>
+        <div class="form-group">
+          <label for="nom_ap">Nombre y Apellido *:</label>
+          <input type="text" class="form-control  mb-2" placeholder="juanito perez" id="nom-_ap">
+
+          <label for="correo">Correo electrónico*:</label>
+          <input type="email" class="form-control  mb-2" placeholder="pedrito123@gmail.com" id="correo">
+
+          <label for="text">Teléfono *:</label>
+          <input type="rut" class="form-control mb-2" placeholder="9 12345678" id="rut">
+        </div>
+        <label for="text">Método de pago*: </label>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio"><i class="fa-solid fa-credit-card"></i>
+            Débito / crédito
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="optradio"><i class="fa-brands fa-paypal"></i>
+            Paypal
+          </label>
+        </div>
+      </form>
+      <button type="button" class="btn btn-success mt-3">Subscribirse
+        <i class="fa-solid fa-hand-holding-heart"></i></button>
+    </div>
+    <div class="col-10 col-sm-8 col-lg-5 d-flex justify-content-center">
+      <img class="w-100" src="{% static 'app/img/thankspet.png' %}" alt="">
+    </div>
+  </div>
+</div>
+
+{% endblock %}

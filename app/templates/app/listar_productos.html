@@ -1,0 +1,52 @@
+{% extends 'app\baseCuenta.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-condensed table-striped">
+                <thead>
+                    <tr>
+                        <th>código</th>
+                        <th>nombre</th>
+                        <th>marca</th>
+                        <th>precio</th>
+                        <th>descripción</th>
+                        <th>stock</th>
+                        <th>categoría</th>
+                        <th>imagen</th>
+                        <th>fecha ingreso</th>
+                        <th>opciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aux in listarProductos %}
+                        <tr>
+                            <td>{{ aux.codigo }}</td>
+                            <td>{{ aux.nombre }}</td>
+                            <td>{{ aux.marca }}</td>
+                            <td>{{ aux.stock}}</td>
+                            <td>{{ aux.precio }}</td>
+                            <td>{{ aux.descripcion }}</td>
+                            <td>
+                                {% for cat in aux.categoria.all %}
+                                    {{ '-' }}{{ cat.categoria }}
+                                {% endfor %}
+                            </td>
+                            <td>{{ aux.imagen }}</td>
+                            <td>{{ aux.create_at }}</td>
+                            <td class="align-items-center">
+                                <a href="{% url 'modificar_producto' aux.codigo %}" class="btn btn-primary w-100">Modificar</a>
+                                <a href="{% url 'eliminar_producto' aux.codigo %}"
+                                class="btn btn-danger w-100 mt-2">Eliminar</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
